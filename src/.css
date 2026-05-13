@@ -1,0 +1,19 @@
+@charset "utf-8";
+h1{
+font-size: 24px;}
+ul#main-nav  {display:flex;  /* doesn't like inline block */
+    list-style-type: none;  /* get rid of ul dots */
+      width: 100%;  /* */
+       justify-content: center;  /* use this to center with display flex*/
+        padding: 0}  /* */
+ul#main-nav li { 
+    padding: 0 10px} /*0 top and bottom, 10 rt and lft */
+.header {text-align:center} /* */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: auto, 40px;
+    border:2px solid red;
+}
+
