@@ -7,7 +7,7 @@
 //import MyApp2 from './citiesPlusSortDup.jsx'
 //import MyApp from './wk13_app_router.jsx'
 //import MyApp from './wk13_app_game3.jsx'
-import MyApp from './finalPorchfest.jsx'
+import MyApp from './finalPorchfest/finalPorchfest.jsx'
 
 
 function App() {

@@ -132,7 +132,9 @@ allowFullScreen></iframe>
 
 <h4>Although Porchfest is free, there are costs associated with making it safe, fun, and comfortable.
 <br></br><strong>Please consider donating:</strong>
-</h4><h5>BE OUR ROCKSTAR! </h5><h2>PayPal</h2>
+</h4><h5>BE OUR ROCKSTAR! </h5>
+<h2><a href="https://www.paypal.com/ncp/payment/S3NEZGJ7JUMHG" 
+	 target="_blank">PayPal </a></h2>
 
 
     </div>
@@ -194,7 +196,7 @@ function Register({addBand}) {
 		<Header />
 <div className="logoBckGrnd">
 			<img
-			src="/spa_game/images/410CommonKidsCopy2.jpg"
+			src="/images/410CommonKidsCopy2.jpg"
 			alt="Belmont Porchfest Logo"
 			className="commonKids" />
 			</div>
@@ -285,7 +287,7 @@ function Register({addBand}) {
 
 <div className="logoBckGrnd">
 			<img
-			src="/spa_game/images/410CommonKidsCopy2.jpg"
+			src={import.meta.env.BASE_URL + "/images/410CommonKidsCopy2.jpg"}
 			alt="Kids in lawn chairs wearing bike helmets watching a band at 410 Common Street"
 			className="commonKids" />
 			</div>
@@ -347,8 +349,6 @@ numbers.sort((a,b) => a-b)
   View My Favorites
 </Link>
 </div>
-
-
 </div>
 
 
@@ -357,7 +357,7 @@ numbers.sort((a,b) => a-b)
 		{Array.isArray(bands) && showBands.map((band, i) => (
 
 	<div className="bandCard" key={i}>	
-	<img src={`/spa_game/images/${band.image}`}
+	<img src={import.meta.env.BASE_URL + "/images/${band.image"}
 	alt={band.name}
 	
 	
@@ -516,7 +516,8 @@ function toggleFavorite(bandName) {
 		<Router>
 			<div className="logoBckGrnd">
 			<img
-			src="/spa_game/images/porchfestLogo2026.png"
+			src={import.meta.env.BASE_URL + "/images/porchfestLogo2026.png"}
+			
 			alt="Belmont Porchfest Logo"
 			className="logoImage" />
 			</div>
