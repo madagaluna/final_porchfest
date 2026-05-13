@@ -318,7 +318,7 @@ function Bands({bands, favorites, toggleFavorite}) {
 
 	}
 	return 0;
-
+numbers.sort((a,b) => a-b)
 	});
 
   
