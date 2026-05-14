@@ -211,8 +211,7 @@ margin: 30px auto;
  /*************************************** SCHEDULE */
 
 .schedule{
-    font-family:Verdana, Geneva, Tahoma, sans-serif
-
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .scheduleCard {
     display: block;   
@@ -263,7 +262,7 @@ a {
     text-decoration: none;
     font-weight: bold;
  }
- 
+
  h5{
     font-family: monospace;
     opacity: 0;
