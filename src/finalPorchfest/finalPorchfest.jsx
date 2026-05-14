@@ -3,8 +3,17 @@ import { useState, useEffect } from 'react'
 import './finalPorchfest.css'
 
 
-// ------------------------------------------------------------------------- DATA object of arrays initializing bands ---
+// ------------------------------------------------------------------------- DATA object of arrays initializing bands --- saved into localStorage with newBands to create bands 
 const initialBands = [
+
+	  {	
+  name: "Surfhenge",
+    type: "Surf",
+    time: "4:00 PM",
+	location: "52 Washington St",
+	instaLink: "https://www.instagram.com/reel/DNy7LecwgKP/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+	image: `/images/surfhenge.png`,
+  },
   {
     name: "Fool’s Gold",
     type: "alt rock",
@@ -66,22 +75,14 @@ const initialBands = [
 	 instaLink: "",
     image: "/images/Redwire.jpg",
   },
-  {	
-  name: "Surfhenge",
-    type: "Surf",
-    time: "4:00 PM",
-	location: "52 Washington St",
-	instaLink: "https://www.instagram.com/reel/DNy7LecwgKP/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-	image: `/images/surfhenge.png`,
-  }
+
 ];
 // ------------------------------------------------------------------------- HEADER ---
 function Header()
 {
 	return (
 	<div className='header'>
-		
-
+	
 	<Nav />
 	</div>
 	)
@@ -98,9 +99,9 @@ function Nav()
 		</ul>
 	);
 }
-// --------------------------------------------------------------------------- PAGES ---
-// --------------------------------------------------------------------------- HOME ---
-// gave the div two class names cuz I'm too lazy to make ids and it works.
+// --------------------------------------------------------------------------- PAGES / HOME ---
+// other than Header/Nav, vanilla JS - my respite when I got stuck in other places
+
 function Home()
 {
     return(
@@ -144,10 +145,10 @@ allowFullScreen></iframe>
 
 
 // --------------------------------------------------------------------------- PAGES / REGISTER / SET STATE
-
+  //these consts don't need to be available elsewhere cuz they are just in the registration form. These values update setBands through newBands, setBands updates bands in myApp where  
 function Register({addBand}) { 
 
-	const [name, setName] = useState('');  // don't need to be available elsewhere cuz they are just in the registration form. These values update setBands through newBands, setBands update bands in myApp 
+	const [name, setName] = useState('');
 	const[type, setType] = useState("");
 	const[time, setTime] = useState("");
 	const[location, setLocation] = useState("");
@@ -156,11 +157,11 @@ function Register({addBand}) {
 
 // --------------------------------------------------------------------------- PAGES / REGISTER 
 // --------------------------------------------------------------------------- Event HANDLER	
-
+// prevent the page from refreshing. Alert if all fields aren't completed (I became good friends with "localStorage.removeItem("bands")) builds newBand object and sends it to MyApp
 	function handleSubmit(e) {
-		e.preventDefault(); //so the page doesn't refresh
+		e.preventDefault(); 
 
-		if(!name.trim() ||  // something in each field or error alert
+		if(!name.trim() ||  
 		!type.trim() ||
 		!time.trim() ||
 		!location.trim() ||
@@ -194,14 +195,8 @@ function Register({addBand}) {
   return (
     <div className="page register">
 		<Header />
-<div className="logoBckGrnd">
-			<img
-			src="/images/410CommonKidsCopy2.jpg"
-			alt="Belmont Porchfest Logo"
-			className="commonKids" />
-			</div>
-      <h1>Registration</h1>
 
+      <h1>Registration</h1>
 
       <div id="centerForm">
 	  <form className="form" onSubmit={handleSubmit}>
@@ -274,35 +269,48 @@ function Register({addBand}) {
 		/>
 			</label>			
 			</div>
-			
 
-<button className="btn" type="submit">
+			<button className="btn" type="submit">
 				Add Band
 			</button>
-	  </form>
-	  </div>
-   
-    </div>
-  );
 
-<div className="logoBckGrnd">
+<div className="commonKids">
 			<img
 			src={import.meta.env.BASE_URL + "/images/410CommonKidsCopy2.jpg"}
 			alt="Kids in lawn chairs wearing bike helmets watching a band at 410 Common Street"
 			className="commonKids" />
 			</div>
+		
+
+
+	  </form>
+	  </div>
+   
+    </div>
+	
+  );
 
 }
 
 // --------------------------------------------------------------------------- PAGES /BANDS ---
-//create search and sort for bands using filter - preserves state -localCompare() rather than > JIC #Prince
-// MAP band array to create individual cards - makes sure new entrys are arrays
+//create search and sort on bands array using filter (preserves state) -localCompare() rather than > JIC #Prince For time sort, I had to convert string to number (military time) then had to choose whether to  between location or time. 12 pulled up 2 so I stayed with location.  Favorites is toggled on checkbox, created a faux button that links to nav link for UX
+// MAP band array to create individual cards - makes sure new entrys are arrays  
 
+function timeLogic(time) {
+	if (time === "12:00 PM") return 12;
+	if (time === "1:00 PM") return 13;
+	if (time === "2:00 PM") return 14;
+	if (time === "3:00 PM") return 15;
+	if (time === "4:00 PM") return 16;
+	if (time === "5:00 PM") return 17;
 
+	return 999;
+}
 
 function Bands({bands, favorites, toggleFavorite}) {
 	const[search, setSearch]=useState('');
 	const[sort, setSort]= useState("");
+	
 
 	const showBands = bands
 	.filter((band) =>
@@ -319,8 +327,17 @@ function Bands({bands, favorites, toggleFavorite}) {
 		return a.type.localeCompare(b.type);
 
 	}
+
+	if (sort === "location") {
+		return a.location.localeCompare(b.location);
+
+	}
+
+	if (sort === "time") {
+		return timeLogic(a.time) - timeLogic(b.time);
+	}
 	return 0;
-numbers.sort((a,b) => a-b)
+
 	});
 
   
@@ -334,7 +351,7 @@ numbers.sort((a,b) => a-b)
 <div className="bandControls">
   <input
     type="text"
-    placeholder="Search bands / music ..."
+    placeholder="Search name, location, type ..."
     value={search}
     onChange={(e) => setSearch(e.target.value)}
   />
@@ -351,17 +368,15 @@ numbers.sort((a,b) => a-b)
 </div>
 </div>
 
-
 	  <div className="bandsLayout">
-
 		{Array.isArray(bands) && showBands.map((band, i) => (
 
 	<div className="bandCard" key={i}>	
-	<img src={import.meta.env.BASE_URL + "/images/${band.image"}
+	<img src={import.meta.env.BASE_URL + band.image} 
 	alt={band.name}
-	
-	
 	className="bandImage" />
+
+
 	<div className="cardHeader">		
 		<h2>{band.name}</h2>
 		{band.instaLink && (<a href={band.instaLink}
@@ -374,7 +389,6 @@ numbers.sort((a,b) => a-b)
 		<p><strong>Time: </strong>{band.time}</p>
 		<p><strong>Location: </strong>{band.location}</p>
 		<p><strong>Descripton: </strong>{band.description}</p>
-		
 		<p>{band.image}</p>
 		<div className="checkBox">
 		<label>
@@ -395,10 +409,13 @@ numbers.sort((a,b) => a-b)
   );
 }
 // --------------------------------------------------------------------------- PAGES /schedule ---
+// builds a personalized schedule from favorited bands and flags time conlicts 
 function Schedule({ bands, favorites }) {
   const favoriteBands = bands.filter((band) =>
     favorites.includes(band.name)
-  );
+  .sort((a,b) => timeLogic(a.time) - timeLogic(b.time));
+  )
+
 
   
   function conflict(time) {
@@ -424,6 +441,8 @@ function Schedule({ bands, favorites }) {
           <p><strong>Location:</strong> {band.location}</p>
           <p>Type: <em>{band.type}</em> </p>
 
+		  
+
 		  {conflict(band.time) && (
             <p className="conflict">
              <strong> Time conflict: </strong><em>you picked more than one performance at {band.time}
@@ -443,7 +462,7 @@ function Schedule({ bands, favorites }) {
 
 
 // --------------------------------------------------------------------------- PAGES /NOT FOUND ---
-
+// anther place of respite when struggling with other components. Enjoy!
 function NotFound()
 {
 	return (

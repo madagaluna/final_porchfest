@@ -33,8 +33,6 @@ font-size: 14px;
 
  .logoImage{
     width: 300px;
-
-
     display: block;
     margin: 0 auto; /* center - when used with block */
  }
@@ -95,7 +93,8 @@ ul#main-nav li {
     gap: 12px;
        }  
 
-.form label{
+.form label{    
+    color: rgb(251, 249, 250);
         font: verdana;
         display: flex;
         gap: 4px;
@@ -119,10 +118,9 @@ ul#main-nav li {
 
 }
  .commonKids{
-    width: 300px;
-border: 5px solid hotpink;
+width: 600px;
 display: block;
-margin: auto;
+margin: 30px auto;
  }
 
   /*************************************** BANDS PAGE */
@@ -217,14 +215,12 @@ margin: auto;
 
 }
 .scheduleCard {
-    display: block;
-    
+    display: block;   
     justify-content: center; 
-  border: 2px dotted hotpink;
-  
+  border: 2px dotted hotpink; 
   padding: 16px;
   margin: 15px auto;
-  width: 300px;
+  width: 600px;
 }
 
 .conflict{
@@ -255,11 +251,10 @@ a {
 
  }
 
- .door-nav ul{
-    
-    gap: 20px;
-   
+ .door-nav ul{  
+    gap: 20px;  
  }
+
  .door-nav a{
     display: block;  /*block so I cn put padding on the link */
     padding-top: 25px;
@@ -268,6 +263,7 @@ a {
     text-decoration: none;
     font-weight: bold;
  }
+ 
  h5{
     font-family: monospace;
     opacity: 0;
