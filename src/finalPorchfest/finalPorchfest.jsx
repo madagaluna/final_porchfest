@@ -410,17 +410,18 @@ function Bands({bands, favorites, toggleFavorite}) {
 }
 // --------------------------------------------------------------------------- PAGES /schedule ---
 // builds a personalized schedule from favorited bands and flags time conlicts 
+
 function Schedule({ bands, favorites }) {
-  const favoriteBands = bands.filter((band) =>
-    favorites.includes(band.name)
-  .sort((a,b) => timeLogic(a.time) - timeLogic(b.time)))
+  const favoriteBands = bands
+    .filter((band) => favorites.includes(band.name))
+    .sort((a, b) => timeLogic(a.time) - timeLogic(b.time));
 
-
-  
   function conflict(time) {
     const bandsAtSameTime = favoriteBands.filter((band) => band.time === time);
     return bandsAtSameTime.length > 1;
   }
+
+
 
 
   return (
