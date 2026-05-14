@@ -532,7 +532,7 @@ function toggleFavorite(bandName) {
 
 
 	return (
-		<Router basename ="/final_porchfest">
+		<Router>
 			<div className="logoBckGrnd">
 			<img
 			src={import.meta.env.BASE_URL + "/images/porchfestLogo2026.png"}

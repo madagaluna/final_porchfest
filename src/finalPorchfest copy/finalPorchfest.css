@@ -1,0 +1,276 @@
+@charset "utf-8";
+
+body{
+    margin: 0;
+
+}
+.page{
+   /* width: 100%; /*not filling the space */
+    min-height: 100vh; /*fills the viewport so the background isn't short on the registration page */
+
+    padding: 24px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(42, 20, 1);
+}
+
+h1{
+font-size: 26px;
+}
+h2{
+font-size: 22px;
+}
+h3{
+font-size: 18px;
+}
+h4{
+font-size: 16px;
+}
+h6{
+font-size: 14px;
+}
+
+  /*************************************** LOGO */
+
+ .logoImage{
+    width: 300px;
+    display: block;
+    margin: 0 auto; /* center - when used with block */
+ }
+ .logoBckGrnd{
+    min-width: 100%;
+    background-color:black;
+  /* box-shadow: inset 0 0 10px rgba(0,0,0,10)  */
+ }
+   
+
+
+  /*************************************** NAV */
+ul#main-nav  {
+    display:flex;  /* doesn't like inline block */
+    list-style-type: none;  /* get rid of ul dots */
+    width: 100%;  /* */
+    justify-content: center;  /* use this to center with display flex*/
+    padding: 0}  /* */
+ul#main-nav li { 
+    padding: 0 10px 
+    } 
+
+    ul#main-nav a {
+    text-decoration: none;
+    font-weight: bold;
+    }
+    
+.header {text-align:center} /* */
+
+  /*************************************** HOME */
+.home{
+    background-color: rgb(86, 92, 68);
+   
+ }
+
+
+  /*************************************** REGISTER */
+
+ .register {
+    background-color: rgb(119, 86, 67)
+ }
+
+
+#centerForm{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.form input{
+    width: 400px;}
+
+
+.form{
+    margin: 30px;
+    display:flex;  /* doesn't like inline block */
+    flex-direction:column;
+    max-width: 600px;  
+    gap: 12px;
+       }  
+
+.form label{    
+    color: rgb(251, 249, 250);
+        font: verdana;
+        display: flex;
+        gap: 4px;
+        font-weight:bolder;
+        font-size: 16px;
+        justify-content: right;
+        min-width: 600px;
+       }
+
+.labelBtnGroup{
+
+    display:flex;
+    align-items: center;
+    gap: 12px;
+}
+.btn{
+    
+    background-color: hotpink;
+    margin-top: 20px;
+    align-self: flex-end;
+
+}
+ .commonKids{
+width: 600px;
+display: block;
+margin: 30px auto;
+ }
+
+  /*************************************** BANDS PAGE */
+
+.bands .header a , .bands .header h1, .bands  h1 {color:rgb(161, 161, 161);
+} 
+
+.bands  h1 {color: rgb(214, 211, 211)}
+  
+
+ .bands {
+    background-color: rgb(58, 3, 58);
+   
+ }
+  .bandControls{
+    
+    margin: 10px;
+
+  }
+
+.bandsLayout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px;
+    
+}
+.bandCard{
+    text-align: left;
+    width: 250px;
+    padding: 16px;
+    
+    background: silver;
+    border-radius: 8px;
+    font-size:14px;
+}
+.cardHeader{
+    background-color: rgb(123, 123, 123);
+    text-align: center;
+    border-radius: 8px;
+     padding: 4px;
+}
+.checkBox{
+    text-align:right;
+    margin: 6px;
+    color: rgb(3, 3, 3);
+   
+}
+
+.bandImage{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.linkBtn{
+    display: inline-block;
+    background-color: rgb(58, 3, 58);
+    color: rgb(135, 133, 133);
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+.fauxBtn a{
+
+    font-size: 12px;
+    background-color: rgb(248, 243, 243);
+    color: rgb(9, 8, 8);
+    padding: 3px 2px;
+    border-radius: 2px;
+    
+    text-decoration: none;
+
+    border: solid 2px black;
+    margin:12px;
+        font-family:Arial, Helvetica, sans-serif;
+}
+.fauxBtn a:hover{
+    background-color: hotpink;
+}
+
+
+ /*************************************** SCHEDULE */
+
+.schedule{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.scheduleCard {
+    display: block;   
+    justify-content: center; 
+  border: 2px dotted hotpink; 
+  padding: 16px;
+  margin: 15px auto;
+  width: 600px;
+}
+
+.conflict{
+    color: rgb(163, 7, 7);
+}
+
+ /*************************************** SECRET PAGE */
+ 
+.NotFound{
+    background-color: rgb(112, 88, 47);
+  
+a {
+    color:rgb(58, 3, 58);
+}
+}
+ .door-nav li{
+    background-color: rgb(128, 64, 18);
+    width: 120px;
+    height: 250px;
+    text-align: center;
+    list-style: none;
+    border: 3px solid rgb(40, 19, 4);
+    padding: 20px;
+   margin: 5px;
+   border-radius: 10px 10px 10px 10px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,40);  /*give a 3D effect */
+    font-weight:bolder
+
+ }
+
+ .door-nav ul{  
+    gap: 20px;  
+ }
+
+ .door-nav a{
+    display: block;  /*block so I cn put padding on the link */
+    padding-top: 25px;
+    
+    color: rgb(225, 192, 147);
+    text-decoration: none;
+    font-weight: bold;
+ }
+
+ h5{
+    font-family: monospace;
+    opacity: 0;
+    transition: opcacity .3s;
+    color:   rgb(57, 26, 4);
+    font-size:14px;
+}
+
+h5:hover{
+    opacity: 0.9; 
+} 
