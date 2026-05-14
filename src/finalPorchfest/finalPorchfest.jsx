@@ -413,8 +413,7 @@ function Bands({bands, favorites, toggleFavorite}) {
 function Schedule({ bands, favorites }) {
   const favoriteBands = bands.filter((band) =>
     favorites.includes(band.name)
-  .sort((a,b) => timeLogic(a.time) - timeLogic(b.time));
-  )
+  .sort((a,b) => timeLogic(a.time) - timeLogic(b.time)))
 
 
   
